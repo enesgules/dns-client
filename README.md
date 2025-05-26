@@ -8,14 +8,38 @@ This is a minimal DNS client built from scratch in Python using raw sockets and 
 * Parses raw binary responses
 * Extracts and prints A records
 * Measures round-trip query time
+* Modern GUI interface with dark theme
+* Asynchronous DNS lookups (non-blocking UI)
 
 ## 🧠 Learning Goals
 
 * Understand DNS protocol internals and binary structure
 * Practice low-level socket programming (UDP)
 * Gain experience in working with binary data using Python's `struct` module
+* Learn GUI development with PySide6
 
-## 🛠 Usage
+## 🛠 Setup
+
+1. Create and activate a virtual environment:
+```bash
+# Create virtual environment
+python -m venv venv
+
+# Activate virtual environment
+# On Windows:
+venv\Scripts\activate
+# On macOS/Linux:
+source venv/bin/activate
+```
+
+2. Install required packages:
+```bash
+pip install -r requirements.txt
+```
+
+## 🖥️ Usage
+
+### Command Line Interface
 
 ```bash
 python dns_client.py [-v] domain_name
@@ -28,6 +52,20 @@ The `-v` flag enables verbose logging, which provides detailed information about
 * Query packet creation
 * Response parsing details
 * Record type information
+
+### Graphical User Interface
+
+To launch the GUI version:
+```bash
+python dns_client_gui.py
+```
+
+The GUI provides:
+* Clean, modern dark theme interface
+* Simple domain name input
+* Real-time DNS lookup results
+* Query time display
+* Error handling with user-friendly messages
 
 ### Example Output
 

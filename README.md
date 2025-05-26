@@ -1,6 +1,6 @@
 # DNS Client in Python
 
-This is a minimal DNS client built from scratch in Python using raw sockets and binary packet manipulation. It sends a DNS query to a public DNS server (like Google’s `8.8.8.8`) and parses the response to extract IPv4 addresses (A records).
+This is a minimal DNS client built from scratch in Python using raw sockets and binary packet manipulation. It sends a DNS query to a public DNS server (like Google's `8.8.8.8`) and parses the response to extract IPv4 addresses (A records).
 
 ## 🚀 Features
 
@@ -13,17 +13,43 @@ This is a minimal DNS client built from scratch in Python using raw sockets and 
 
 * Understand DNS protocol internals and binary structure
 * Practice low-level socket programming (UDP)
-* Gain experience in working with binary data using Python’s `struct` module
+* Gain experience in working with binary data using Python's `struct` module
 
 ## 🛠 Usage
 
 ```bash
-python dns_client.py example.com
+python dns_client.py [-v] domain_name
 ```
+
+The `-v` flag enables verbose logging, which provides detailed information about the DNS query process, including:
+* Transaction ID generation
+* DNS header construction
+* Domain name conversion
+* Query packet creation
+* Response parsing details
+* Record type information
 
 ### Example Output
 
+Without verbose flag:
 ```bash
+IP addresses for google.com: ['142.250.186.14']
+Query time: 37 ms
+```
+
+With verbose flag (-v):
+```bash
+2024-03-21 10:30:15 - DEBUG - Generated transaction ID: 12345
+2024-03-21 10:30:15 - DEBUG - DNS Header - Flags: 256, QDCount: 1, ANCount: 0
+2024-03-21 10:30:15 - DEBUG - Converted domain 'google.com' to DNS format: b'\x06google\x03com\x00'
+2024-03-21 10:30:15 - DEBUG - Created DNS query packet for domain: google.com
+2024-03-21 10:30:15 - DEBUG - Sending DNS query to 8.8.8.8:53
+2024-03-21 10:30:15 - DEBUG - Waiting for DNS response...
+2024-03-21 10:30:15 - DEBUG - Parsing DNS response - Transaction ID: 12345
+2024-03-21 10:30:15 - DEBUG - Response counts - Questions: 1, Answers: 1, Authority: 0, Additional: 0
+2024-03-21 10:30:15 - DEBUG - Found domain name pointer
+2024-03-21 10:30:15 - DEBUG - Record Type: 1, Class: 1, TTL: 300, Data Length: 4
+2024-03-21 10:30:15 - DEBUG - Found A record with IP: 142.250.186.14
 IP addresses for google.com: ['142.250.186.14']
 Query time: 37 ms
 ```

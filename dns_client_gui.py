@@ -103,7 +103,7 @@ class DNSClientGUI(QMainWindow):
 
         # Title
         title = QLabel("DNS Lookup")
-        title.setFont(QFont("SF Pro Display", 32, QFont.Weight.Bold))
+        title.setFont(QFont("Arial", 32, QFont.Weight.Bold))
         title.setAlignment(Qt.AlignCenter)
         title.setStyleSheet("color: #2C3E50; margin-bottom: 20px;")
         layout.addWidget(title)
@@ -145,7 +145,7 @@ class DNSClientGUI(QMainWindow):
 
         # Results label
         self.results_label = QLabel("Results will appear here")
-        self.results_label.setFont(QFont("SF Pro Text", 14))
+        self.results_label.setFont(QFont("Arial", 14))
         self.results_label.setAlignment(Qt.AlignCenter)
         self.results_label.setStyleSheet("color: #7F8C8D;")
         results_layout.addWidget(self.results_label)
@@ -156,7 +156,7 @@ class DNSClientGUI(QMainWindow):
 
         # Query time label
         self.query_time_label = QLabel("")
-        self.query_time_label.setFont(QFont("SF Pro Text", 12))
+        self.query_time_label.setFont(QFont("Arial", 12))
         self.query_time_label.setAlignment(Qt.AlignCenter)
         self.query_time_label.setStyleSheet("color: #7F8C8D;")
         results_layout.addWidget(self.query_time_label)
@@ -218,7 +218,7 @@ def main():
     app = QApplication(sys.argv)
     
     # Set application-wide font
-    app.setFont(QFont("SF Pro Text", 12))
+    app.setFont(QFont("Arial", 12))
     
     window = DNSClientGUI()
     window.show()
